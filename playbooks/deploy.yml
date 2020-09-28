@@ -10,9 +10,9 @@
       mode: 0755
   - name: Add the script execution to cron
     cron:
-      minute: *
-      hour: */2
-      day: *
-      month: *
-      weekday: *
+      minute: "*
+      hour: "*/2"
+      day: "*"
+      month: "*"
+      weekday: "*"
       job: "bash /root/rabbitmq-notification-cleanup.sh"
