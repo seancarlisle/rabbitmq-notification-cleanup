@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
 # Cycle through and purge notification queues
 for VHOST in $(rabbitmqctl list_vhosts | grep -v List)
 do
@@ -7,6 +9,6 @@ do
 
    for QUEUE in $QUEUES_TO_PURGE
    do
-      echo rabbitmqctl purge_queues -p $VHOST $QUEUE
+      rabbitmqctl purge_queue -p $VHOST $QUEUE
    done
 done
